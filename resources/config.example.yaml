@@ -1,0 +1,50 @@
+kind: Config
+apiVersion: fyt.queueb.org/v1alpha1
+
+inputDirectories:
+  - path: ./timesheets
+    description: Personal timesheets
+
+reports:
+  memberName: Alex Example
+
+processing:
+  duplicatePolicy: Merge
+  shortEntryThreshold: 5m
+
+invoice:
+  supplier:
+    name: Alex Example
+    address: 1 Main Street
+    city: Example City
+    phone: "+1 202 555 0100"
+    email: supplier@example.com
+    options:
+      customer_id: "13"
+    details: |
+      Registration details
+  customer:
+    name: Example Company
+    address: 2 Main Street
+    city: Example City
+    phone: "+1 202 555 0101"
+    email: customer@example.com
+  serviceDescription: Software development
+  currency: USD
+  hourlyRate: "50.00"
+  monetaryPrecision: 2
+  tax:
+    type: None
+  paymentInstructions: |
+    Bank transfer details
+  # Optional charges for the invoice generated using this configuration.
+  # additionalLines:
+  #   - description: Software license
+  #     quantity: "1"
+  #     unitPrice: "110.00"
+
+documents:
+  outputDirectory: './documents/{{ .YearMonth }}'
+  templatesDirectories:
+    - path: ./templates
+      description: Custom templates

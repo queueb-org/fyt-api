@@ -1,0 +1,11 @@
+{
+  "apiVersion": "fyt.queueb.org/v1alpha1",
+  "kind": "TimeEntryList",
+  "items": [
+    {
+      "start": "2026-09-08T09:00:00.00000001Z",
+      "end": "2026-09-08T10:00:00.00000001Z",
+      "description": "Fix parser"
+    }
+  ]
+}
